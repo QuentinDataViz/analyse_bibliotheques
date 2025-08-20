@@ -11,7 +11,7 @@ rm(package)
 options( "digits"=2, "scipen"=100) 
  
 
-
+ 
 
 ############################## INTRODUCTIION ################################### 
 
@@ -27,7 +27,7 @@ options( "digits"=2, "scipen"=100)
 
 
 # Il existe un dataset de 2023, basé sur un sondage
-# Les salari?s sont indiqués en ETP et elles semblent contenir des infos sur les populations des communes concernées
+# Les salariés sont indiqués en ETP et elles semblent contenir des infos sur les populations des communes concernées
 # L'amplitude horaire est exprim?e en nombre d'ouverture d'heures hebdo
 
 # Données des bibliothèques : https://www.data.gouv.fr/fr/datasets/adresses-des-bibliotheques-publiques-2/
