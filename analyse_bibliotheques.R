@@ -9,7 +9,7 @@ lapply(package, require, character.only = TRUE)
 rm(package)
 
 options( "digits"=2, "scipen"=100) 
- 
+
 
  
 
@@ -18,7 +18,7 @@ options( "digits"=2, "scipen"=100)
 
 ### L'article du Monde clame l'idée d'un réseau de bibliothéque unique au monde, qui donne un accés à la lecture gratuit.
 ### https://www.lemonde.fr/idees/article/2025/05/31/le-livre-d-occasion-est-en-train-de-cannibaliser-en-silence-toute-la-chaine-du-livre_6609480_3232.html
-### Point de départ idéal pour faire un état des lieux des bibliothèques en France
+### Point de départ intéressant pour faire un état des lieux des bibliothèques en France
 
 
 
@@ -28,11 +28,11 @@ options( "digits"=2, "scipen"=100)
 
 # Il existe un dataset de 2023, basé sur un sondage
 # Les salariés sont indiqués en ETP et elles semblent contenir des infos sur les populations des communes concernées
-# L'amplitude horaire est exprim?e en nombre d'ouverture d'heures hebdo
+# L'amplitude horaire est exprimée en nombre d'ouverture d'heures hebdo
 
 # Données des bibliothèques : https://www.data.gouv.fr/fr/datasets/adresses-des-bibliotheques-publiques-2/
 # Lien du téléchargement :  https://www.data.gouv.fr/fr/datasets/r/e3588487-4732-4b6c-ab12-72d75d7f522f
-# Je le télécharge en local pour ?viter la n?cessit? d'une connexion internet
+# Je le télécharge en local pour éviter la nécessité d'une connexion internet à chaque chargement
 
 
 biblio <- 
@@ -47,8 +47,8 @@ biblio <-
   
   
 
-# On charge aussi les donn?es de population par d?partement et on uniformise les noms. 
-# Toutes les donn?es n'?tant pas dispo sur data.gouv, nous devons passer par l'Insee. 
+# On charge aussi les données de population par département et on uniformise les noms. 
+# Toutes les données n'étant pas dispo sur data.gouv, nous devons passer par l'Insee. 
 
 # Populations de référence 2022 
 # https://www.insee.fr/fr/statistiques/8290591?sommaire=8290669#consulter
@@ -56,7 +56,7 @@ biblio <-
 # Les NA sont liées aux départements de Corse (2A / 2B) que nous excluerons de l'échantillon
 
 pop_dep <- 
-#rio::import("https://www.insee.fr/fr/statistiques/fichier/8290591/ensemble.xlsx", skip = 7, sheet = "D?partements") %>% 
+#rio::import("https://www.insee.fr/fr/statistiques/fichier/8290591/ensemble.xlsx", skip = 7, sheet = "Départements") %>% 
 read_xlsx("data/2024 departements.xlsx", sheet = "Départements", skip = 7) %>%  
   clean_names() %>% 
   tibble() %>% 
@@ -307,7 +307,8 @@ communes_centroid <-
 
 
 # Puis avec st_nn, on regarde la distance entre le centroid de chaque commune et 
-# le point sur plus proche point du dataset (prend 1 à 2 minutes)
+# le point sur plus proche point du dataset 
+# Attention, le calcul peut prendre plusieurs minutes
 
 
 distance_commune_biblio <-
